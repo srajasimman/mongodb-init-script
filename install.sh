@@ -6,9 +6,9 @@ mv mongodb-linux-* /opt/mongodb
 mkdir -p /data/db/mongodb
 mkdir -p /opt/mongodb/config
 touch /data/db/mongodb.log
-curl http://192.168.1.109:8080/mongodb > /etc/init.d/mongodb
+curl https://raw.githubusercontent.com/srajasimman/mongodb-init-script/master/mongodb > /etc/init.d/mongodb
 chmod +x /etc/init.d/mongodb
-curl http://192.168.1.109:8080/mongodb.conf > /opt/mongodb/config/mongodb
+curl https://raw.githubusercontent.com/srajasimman/mongodb-init-script/master/mongodb.conf > /opt/mongodb/config/mongodb
 ln -s /opt/mongodb/config/mongodb /etc/mongod.conf
 ln -s /opt/mongodb/bin/mongod /usr/bin/mongod
 useradd -M -r --home-dir /opt/mongodb mongodb
