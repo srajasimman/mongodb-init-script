@@ -10,7 +10,7 @@
 
 MONGOHOME="/opt/mongodb"
 CONFIGFILE="$MONGOHOME/config/mongodb"
-DBPATH="/data/db"
+DBPATH="/data/db/mongodb"
 MONGO_USER="mongodb"
 
 COMMAND="$MONGOHOME/bin/mongod"
