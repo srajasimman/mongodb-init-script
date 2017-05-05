@@ -1,4 +1,5 @@
 #!/bin/sh
+cd /opt
 wget -c http://downloads.mongodb.org/linux/mongodb-linux-x86_64-3.2.3.tgz
 tar -xzvf mongodb-linux-*
 rm mongodb-linux-*.tgz -f
