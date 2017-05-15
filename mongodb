@@ -17,6 +17,15 @@ COMMAND="$MONGOHOME/bin/mongod"
 OPT="--config $CONFIGFILE"
 mongod=${MONGOD-$COMMAND}
 
+set_ulimit() {
+  ulimit -f unlimited
+  ulimit -t unlimited
+  ulimit -v unlimited
+  ulimit -n 64000
+  ulimit -m unlimited
+  ulimit -u 64000
+}
+
 usage() {
   echo "Usage: $0 {start|stop|restart|status}"
   exit 0
@@ -28,12 +37,7 @@ fi
 
 start()
 {
-  ulimit -f unlimited
-  ulimit -t unlimited
-  ulimit -v unlimited
-  ulimit -n 64000
-  ulimit -m unlimited
-  ulimit -u 64000
+  set_ulimit
   echo -n $"Starting mongod: "
   daemon --user "$MONGO_USER" $COMMAND $OPT
   RETVAL=$?
@@ -68,4 +72,3 @@ case "$1" in
     usage
     ;;
 esac
-
